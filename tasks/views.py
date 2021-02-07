@@ -5,7 +5,7 @@ from .forms import *
 
 # Create your views here.
 def index(request):
-    tasks = task.objects.all()
+    tasks = Task.objects.all()
 
     form = TaskForm()
 
@@ -19,7 +19,7 @@ def index(request):
     return render(request, 'tasks/list.html', context)
 
 def updateTask(request, pk):
-    tasks = task.objects.get(id=pk)
+    task = Task.objects.get(id=pk)
     form = TaskForm(instance=task)
     context = {'form':form}
-    return render(request, 'tasks/update_task.html')
+    return render(request, 'tasks/update_task.html', context)
