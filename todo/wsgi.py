@@ -15,18 +15,3 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'todo.settings.prod')
 
 application = get_wsgi_application()
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
-        },
-    },
-}
